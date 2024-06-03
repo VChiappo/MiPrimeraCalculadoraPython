@@ -18,7 +18,12 @@ def borrar():
     e_texto.delete(0, END)    
     i=0
 
-
+def hacer_operacion():
+    ecuacion=e_texto.get()
+    resultado= eval(ecuacion)
+    e_texto.delete(0, END)
+    e_texto.insert(0, resultado)
+    i=0
 
 #Botones 
 boton1=Button(ventana, text="1", width=5, height=2, command= lambda: click_boton(1))
@@ -41,7 +46,7 @@ boton_Div=Button(ventana, text="/", width=5, height=2, command= lambda: click_bo
 boton_Mult=Button(ventana, text="*", width=5, height=2, command= lambda: click_boton('*'))
 boton_Suma=Button(ventana, text="+", width=5, height=2,command= lambda: click_boton('+'))
 boton_Resta=Button(ventana, text="-", width=5, height=2, command= lambda: click_boton('-'))
-boton_Igual=Button(ventana, text="=", width=5, height=2, command= lambda: click_boton('='))
+boton_Igual=Button(ventana, text="=", width=5, height=2, command= lambda: hacer_operacion())
 
 #Agregar botones en pantalla 
 boton_Borrar.grid(row= 1, column=0, padx=5, pady=5)
