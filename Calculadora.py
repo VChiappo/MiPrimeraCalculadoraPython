@@ -2,32 +2,46 @@ from tkinter import *
 ventana =Tk()
 ventana.title("Calculadora")
 
+i=0
+
 #Entrada
 e_texto= Entry(ventana, font=("Calibri "))
 e_texto.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
 
+#Funciones
+def click_boton(valor):
+    global i
+    e_texto.insert(i, valor)
+    i += 1
+
+def borrar():
+    e_texto.delete(0, END)    
+    i=0
+
+
+
 #Botones 
-boton1=Button(ventana, text="1", width=5, height=2)
-boton2=Button(ventana, text="2", width=5, height=2)
-boton3=Button(ventana, text="3", width=5, height=2)
-boton4=Button(ventana, text="4", width=5, height=2)
-boton5=Button(ventana, text="5", width=5, height=2)
-boton6=Button(ventana, text="6", width=5, height=2)
-boton7=Button(ventana, text="7", width=5, height=2)
-boton8=Button(ventana, text="8", width=5, height=2)
-boton9=Button(ventana, text="9", width=5, height=2)
-boton0=Button(ventana, text="0", width=13, height=2)
+boton1=Button(ventana, text="1", width=5, height=2, command= lambda: click_boton(1))
+boton2=Button(ventana, text="2", width=5, height=2, command= lambda: click_boton(2))
+boton3=Button(ventana, text="3", width=5, height=2, command= lambda: click_boton(3))
+boton4=Button(ventana, text="4", width=5, height=2, command= lambda: click_boton(4))
+boton5=Button(ventana, text="5", width=5, height=2, command= lambda: click_boton(5))
+boton6=Button(ventana, text="6", width=5, height=2, command= lambda: click_boton(6))
+boton7=Button(ventana, text="7", width=5, height=2, command= lambda: click_boton(7))
+boton8=Button(ventana, text="8", width=5, height=2, command= lambda: click_boton(8))
+boton9=Button(ventana, text="9", width=5, height=2, command= lambda: click_boton(9))
+boton0=Button(ventana, text="0", width=13, height=2, command= lambda: click_boton(0))
 
-boton_Borrar=Button(ventana, text="AC", width=5, height=2)
-boton_Parentesis1=Button(ventana, text="(", width=5, height=2)
-boton_Parentesis2=Button(ventana, text=")", width=5, height=2)
-boton_Punto=Button(ventana, text=".", width=5, height=2)
+boton_Borrar=Button(ventana, text="AC", width=5, height=2, command= lambda: borrar())
+boton_Parentesis1=Button(ventana, text="(", width=5, height=2, command= lambda: click_boton("("))
+boton_Parentesis2=Button(ventana, text=")", width=5, height=2, command= lambda: click_boton(")"))
+boton_Punto=Button(ventana, text=".", width=5, height=2, command= lambda: click_boton('.'))
 
-boton_Div=Button(ventana, text="/", width=5, height=2)
-boton_Mult=Button(ventana, text="*", width=5, height=2)
-boton_Suma=Button(ventana, text="+", width=5, height=2)
-boton_Resta=Button(ventana, text="-", width=5, height=2)
-boton_Igual=Button(ventana, text="=", width=5, height=2)
+boton_Div=Button(ventana, text="/", width=5, height=2, command= lambda: click_boton('/'))
+boton_Mult=Button(ventana, text="*", width=5, height=2, command= lambda: click_boton('*'))
+boton_Suma=Button(ventana, text="+", width=5, height=2,command= lambda: click_boton('+'))
+boton_Resta=Button(ventana, text="-", width=5, height=2, command= lambda: click_boton('-'))
+boton_Igual=Button(ventana, text="=", width=5, height=2, command= lambda: click_boton('='))
 
 #Agregar botones en pantalla 
 boton_Borrar.grid(row= 1, column=0, padx=5, pady=5)
@@ -52,10 +66,10 @@ boton3.grid(row=4, column=2, padx=5, pady=5)
 boton_Resta.grid(row=4, column=3, padx=5, pady=5)
 
 
-#boton.grid(row=, column=, padx=, pady=)
-#boton.grid(row=, column=, padx=, pady=)
-#boton.grid(row=, column=, padx=, pady=)
-#boton.grid(row=, column=, padx=, pady=)
+boton0.grid(row=5, column=0, columnspan=2, padx=5, pady=5)
+boton_Punto.grid(row=5, column=2, padx=5, pady=5)
+boton_Igual.grid(row=5, column=3, padx=5, pady=5)
+#boton.grid(row=5, column=3, padx=5, pady=5)
 
 
 ventana.mainloop()
